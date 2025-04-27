@@ -16,11 +16,20 @@ if hist_button:
     fig = px.histogram(car_data, x="odometer", labels={"odometer": "odómetro"})
 
     st.plotly_chart(fig, use_container_width=True)
+ 
 
     import streamlit as st
+
+scatt_button = st.button('Construye un diagrama de dispersión')
+
+if scatt_button: 
+    st.write('Creación de un diagrama de dispersión')
+    fig = px.scatter(car_data, x="model", y="days_listed", labels={"model": "Modelo", "days_listed": "Dias en lista"})
+    st.plotly_chart(fig, use_container_width=True)
+
 
 build_histogram = st.checkbox('Da click si ya terminaste')
 
 if build_histogram:
-    st.write('Construiste un histograma para la columna odómetro')  
+    st.write('Construiste un histograma para la columna odómetro y un diagrama de dispersión para las columnas modelo y dias en lista') 
 
